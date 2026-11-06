@@ -4,7 +4,7 @@ This public repository contains the starter code and public checks for EECS C106
 
 ## Assignments
 
-Seven assignments have been released: HW0 through HW6.
+Nine assignments have been released: HW0 through HW8.
 
 | Assignment | Instructions | File to complete |
 | --- | --- | --- |
@@ -15,6 +15,8 @@ Seven assignments have been released: HW0 through HW6.
 | HW4: Inverse Kinematics | Assignment handout and starter docstrings | `hw4/hw4.py` |
 | HW5: Plane Fitting with RANSAC | Assignment handout and starter docstrings | `hw5/plane_fitting.py` |
 | HW6: Trajectories and Integration in SE(3) | Assignment handout and starter docstrings | `hw6/hw6.py` |
+| HW7: Jacobians and Inverse Kinematics | Assignment handout and starter docstrings | `hw7/jacobian_func_skeleton.py`, `hw7/euler.py`, and `hw7/overactuated_ik.py` |
+| HW8: Path Planning and Dynamics | Assignment handout and starter docstrings | `hw8/rrt.py` |
 
 The assignment handout provides the full problem statement and any additional submission requirements.
 
@@ -80,6 +82,8 @@ python -m pip install -r hw3/requirements.txt  # HW3
 python -m pip install -r hw4/requirements.txt  # HW4
 python -m pip install -r hw5/requirements.txt  # HW5
 python -m pip install -r hw6/requirements.txt  # HW6
+python -m pip install -r hw7/requirements.txt  # HW7
+python -m pip install -r hw8/requirements.txt  # HW8
 ```
 
 For HW0, run `python -m jupyterlab` and open `hw0/HW0.ipynb`.
@@ -110,6 +114,26 @@ For HW6, complete `hw6/hw6.py`, then run `python hw6/check_hw6.py`.
 Run `python hw6/visualize.py --sweep` to compare integration timesteps in
 the chair-swing visualizer. Run `python hw6/run_trajectory.py --sweep`
 for the error plots.
+
+For HW7, complete the three files listed above and run `python hw7/check_hw7.py`.
+Use `python hw7/run_ur_ik.py` and `python hw7/run_panda_ik.py` for the demos
+described in the handout.
+
+For HW8, complete `hw8/rrt.py`, then run `python hw8/checkhw8.py`.
+The demos are available from the repository root as you complete the
+corresponding functions:
+
+```bash
+python hw8/rrt.py --demo 2d --scene blocked
+python hw8/rrt.py --demo collision
+python hw8/rrt.py --demo interpolation
+python hw8/rrt.py --demo 3d
+python hw8/rrt.py --demo trajopt
+```
+
+For the written OSIRIS-RExploring problem, the ungraded SymPy starter is
+`hw8/OSIRIS-RExploring.py`. Fill in the matrices and the eigenvalue print
+call before running it.
 
 ## Getting a newly released assignment
 

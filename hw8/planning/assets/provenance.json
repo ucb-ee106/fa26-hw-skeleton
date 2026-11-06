@@ -1,0 +1,15 @@
+{
+  "revision": "27cb9b66ebd8d101ce88d330f3b028398afc1cfa",
+  "sources": {
+    "resources/ur5/ur5_spherized.urdf": "21c5b03e2cafc8bc00d6f90f5254fdbf2e89ee46c5132afe6a3f092bbb77f464",
+    "resources/ur5/ur5.srdf": "41e55841a66ee95ef4eec092e7592717ca99af5eb97d1c1b211bcc0eaf2b8843",
+    "LICENSE.txt": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "resources/ur5/meshes/ur5/visual/base.dae": "2c043bc6cd7b27856e44951abdd33cf2d23f06f15b944216457efd63374d1fbc",
+    "resources/ur5/meshes/ur5/visual/shoulder.dae": "ede06757e0d1a8d7232222ff1a109aa680f9fb706aec86a54cb24a6beeb555e5",
+    "resources/ur5/meshes/ur5/visual/upperarm.dae": "e8e2feef1df8801cfb46a41ca14fcf1e7f709e21e408896e389a888f6d2495e1",
+    "resources/ur5/meshes/ur5/visual/forearm.dae": "5a28dd6d1a43cd3587f154f65971394ffc05b2ad3cb53d2bf3df7da90007e0c8",
+    "resources/ur5/meshes/ur5/visual/wrist1.dae": "717241932c4cac2964540156915d1019b7e2898860f1b5f2c19ca8fd25b189b6",
+    "resources/ur5/meshes/ur5/visual/wrist2.dae": "71c9ceb4ad10b734ddc5379996a150a641fd9dd556af62dfac1a73d222367403",
+    "resources/ur5/meshes/ur5/visual/wrist3.dae": "a788d3ea756d6a760ecbbfc5ef4f36d0ddc335de7deec9b996e4262048d8e18d"
+  }
+}

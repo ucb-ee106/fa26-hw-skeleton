@@ -1,0 +1,7 @@
+UR5 spherical collision geometry and semantic exclusions adapted from KavrakiLab/VAMP.
+Source revision: 27cb9b66ebd8d101ce88d330f3b028398afc1cfa
+https://github.com/KavrakiLab/vamp/tree/27cb9b66ebd8d101ce88d330f3b028398afc1cfa/resources/ur5
+Modifications: remove gripper and raised mounting frame; separate visual/collision descriptions.
+Restrict joint positions to the homework interval [-pi, pi].
+Coarse bounds are computed from the fine spheres, not fitted independently.
+This existing spherization is distributed instead of requiring students to run Foam.

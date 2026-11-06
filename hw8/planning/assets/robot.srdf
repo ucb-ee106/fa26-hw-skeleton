@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="hw8_ur5">
+  <group name="manipulator">
+    <chain base_link="base_link" tip_link="ee_link" />
+  </group>
+  <contact_managers_plugin_config filename="package://tesseract/support/urdf/contact_manager_plugins.yaml" />
+  <disable_collisions link1="base_link" link2="shoulder_link" reason="Adjacent" />
+  <disable_collisions link1="ee_link" link2="wrist_1_link" reason="Never" />
+  <disable_collisions link1="ee_link" link2="wrist_2_link" reason="Never" />
+  <disable_collisions link1="ee_link" link2="wrist_3_link" reason="Adjacent" />
+  <disable_collisions link1="forearm_link" link2="upper_arm_link" reason="Adjacent" />
+  <disable_collisions link1="forearm_link" link2="wrist_1_link" reason="Adjacent" />
+  <disable_collisions link1="shoulder_link" link2="upper_arm_link" reason="Adjacent" />
+  <disable_collisions link1="wrist_1_link" link2="wrist_2_link" reason="Adjacent" />
+  <disable_collisions link1="wrist_1_link" link2="wrist_3_link" reason="Never" />
+  <disable_collisions link1="wrist_2_link" link2="wrist_3_link" reason="Adjacent" />
+</robot>

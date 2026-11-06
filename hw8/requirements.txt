@@ -1,0 +1,6 @@
+numpy==2.2.6
+scipy==1.17.0
+sympy==1.14.0
+matplotlib==3.10.8
+roboticstoolbox-python[swift]==1.4.2
+tesseract-robotics-nanobind==0.35.0.8

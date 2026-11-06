@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="hw8_ur5" xmlns:tesseract="http://tesseract-robotics.org" tesseract:make_convex="false">
+  <link name="base_link">
+    <collision>
+      <geometry>
+        <sphere radius="0.08" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+    </collision>
+    <inertial>
+      <mass value="4.0" />
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0" />
+      <inertia ixx="0.00443333156" ixy="0.0" ixz="0.0" iyy="0.00443333156" iyz="0.0" izz="0.0072" />
+    </inertial>
+  </link>
+  <link name="shoulder_link">
+    <collision>
+      <geometry>
+        <sphere radius="0.08" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+    </collision>
+    <inertial>
+      <mass value="3.7" />
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0" />
+      <inertia ixx="0.010267495893" ixy="0.0" ixz="0.0" iyy="0.010267495893" iyz="0.0" izz="0.00666" />
+    </inertial>
+  </link>
+  <link name="upper_arm_link">
+    <collision>
+      <geometry>
+        <sphere radius="0.08" />
+      </geometry>
+      <origin xyz="0 0 0.105" rpy="0 0 0" />
+    </collision>
+    <collision>
+      <geometry>
+        <sphere radius="0.08" />
+      </geometry>
+      <origin xyz="0 0 0.21" rpy="0 0 0" />
+    </collision>
+    <collision>
+      <geometry>
+        <sphere radius="0.08" />
+      </geometry>
+      <origin xyz="0 0 0.315" rpy="0 0 0" />
+    </collision>
+    <collision>
+      <geometry>
+        <sphere radius="0.08" />
+      </geometry>
+      <origin xyz="0 0 0.42" rpy="0 0 0" />
+    </collision>
+    <collision>
+      <geometry>
+        <sphere radius="0.08" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+    </collision>
+    <inertial>
+      <mass value="8.393" />
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.28" />
+      <inertia ixx="0.22689067591036005" ixy="0.0" ixz="0.0" iyy="0.22689067591036005" iyz="0.0" izz="0.0151074" />
+    </inertial>
+  </link>
+  <link name="forearm_link">
+    <collision>
+      <geometry>
+        <sphere radius="0.08" />
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+    </collision>
+    <collision>
+      <geometry>
+        <sphere radius="0.04" />
+      </geometry>
+      <origin xyz="0 0 0.1" rpy="0 0 0" />
+    </collision>
+    <collision>
+      <geometry>
+        <sphere radius="0.04" />
+      </geometry>
+      <origin xyz="0 0 0.14" rpy="0 0 0" />
+    </collision>
+    <collision>
+      <geometry>
+        <sphere radius="0.04" />
+      </geometry>
+      <origin xyz="0 0 0.18" rpy="0 0 0" />
+    </collision>
+    <collision>
+      <geometry>
+        <sphere radius="0.04" />
+      </geometry>
+      <origin xyz="0 0 0.21999999999999997" rpy="0 0 0" />
+    </collision>
+    <collision>
+      <geometry>
+        <sphere radius="0.04" />
+      </geometry>
+      <origin xyz="0 0 0.25999999999999995" rpy="0 0 0" />
+    </collision>
+    <collision>
+      <geometry>
+        <sphere radius="0.04" />
+      </geometry>
+      <origin xyz="0 0 0.3" rpy="0 0 0" />
+    </collision>
+    <collision>
+      <geometry>
+        <sphere radius="0.04" />
+      </geometry>
+      <origin xyz="0 0 0.34" rpy="0 0 0" />
+    </collision>
+    <collision>
+      <geometry>
+        <sphere radius="0.04" />
+      </geometry>
+      <origin xyz="0 0 0.38000000000000006" rpy="0 0 0" />
+    </collision>
+    <inertial>
+      <mass value="2.275" />
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.25" />
+      <inertia ixx="0.04944331355599999" ixy="0.0" ixz="0.0" iyy="0.04944331355599999" iyz="0.0" izz="0.004095" />
+    </inertial>
+  </link>
+  <link name="wrist_1_link">
+    <collision>
+      <geometry>
+        <sphere radius="0.04" />
+      </geometry>
+      <origin xyz="0 0.09 0.03" rpy="0 0 0" />
+    </collision>
+    <collision>
+      <geometry>
+        <sphere radius="0.04" />
+      </geometry>
+      <origin xyz="0 0.09 -0.03" rpy="0 0 0" />
+    </collision>
+    <collision>
+      <geometry>
+        <sphere radius="0.04" />
+      </geometry>
+      <origin xyz="0 0.09 0" rpy="0 0 0" />
+    </collision>
+    <inertial>
+      <mass value="1.219" />
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0" />
+      <inertia ixx="0.11117275553087999" ixy="0.0" ixz="0.0" iyy="0.11117275553087999" iyz="0.0" izz="0.21942" />
+    </inertial>
+  </link>
+  <link name="wrist_2_link">
+    <collision>
+      <geometry>
+        <sphere radius="0.04" />
+      </geometry>
+      <origin xyz="0 0.03 0.09" rpy="0 0 0" />
+    </collision>
+    <collision>
+      <geometry>
+        <sphere radius="0.04" />
+      </geometry>
+      <origin xyz="0 -0.03 0.09" rpy="0 0 0" />
+    </collision>
+    <collision>
+      <geometry>
+        <sphere radius="0.04" />
+      </geometry>
+      <origin xyz="0 0 0.09" rpy="0 0 0" />
+    </collision>
+    <inertial>
+      <mass value="1.219" />
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0" />
+      <inertia ixx="0.11117275553087999" ixy="0.0" ixz="0.0" iyy="0.11117275553087999" iyz="0.0" izz="0.21942" />
+    </inertial>
+  </link>
+  <link name="wrist_3_link">
+    <collision>
+      <geometry>
+        <sphere radius="0.04" />
+      </geometry>
+      <origin xyz="0 0.06 0" rpy="0 0 0" />
+    </collision>
+    <inertial>
+      <mass value="0.1879" />
+      <origin rpy="0 0 0" xyz="0.0 0.0 0.0" />
+      <inertia ixx="0.017136473145408" ixy="0.0" ixz="0.0" iyy="0.017136473145408" iyz="0.0" izz="0.033822" />
+    </inertial>
+  </link>
+  <link name="ee_link">
+	</link>
+  <link name="tool0" />
+  <joint name="shoulder_pan_joint" type="revolute">
+    <parent link="base_link" />
+    <child link="shoulder_link" />
+    <origin rpy="0 0.0 0" xyz="0.0 0.0 0.089159" />
+    <axis xyz="0 0 1" />
+    <limit effort="150.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="0.5" />
+    <dynamics damping="0.0" friction="0.0" />
+  </joint>
+  <joint name="shoulder_lift_joint" type="revolute">
+    <parent link="shoulder_link" />
+    <child link="upper_arm_link" />
+    <origin rpy="0.0 1.570796325 0.0" xyz="0.0 0.13585 0.0" />
+    <axis xyz="0 1 0" />
+    <limit effort="150.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="0.5" />
+    <dynamics damping="0.0" friction="0.0" />
+  </joint>
+  <joint name="elbow_joint" type="revolute">
+    <parent link="upper_arm_link" />
+    <child link="forearm_link" />
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 -0.1197 0.425" />
+    <axis xyz="0 1 0" />
+    <limit effort="150.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="0.5" />
+    <dynamics damping="0.0" friction="0.0" />
+  </joint>
+  <joint name="wrist_1_joint" type="revolute">
+    <parent link="forearm_link" />
+    <child link="wrist_1_link" />
+    <origin rpy="0.0 1.570796325 0.0" xyz="0.0 0.0 0.39225" />
+    <axis xyz="0 1 0" />
+    <limit effort="28.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="0.5" />
+    <dynamics damping="0.0" friction="0.0" />
+  </joint>
+  <joint name="wrist_2_joint" type="revolute">
+    <parent link="wrist_1_link" />
+    <child link="wrist_2_link" />
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.093 0.0" />
+    <axis xyz="0 0 1" />
+    <limit effort="28.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="0.5" />
+    <dynamics damping="0.0" friction="0.0" />
+  </joint>
+  <joint name="wrist_3_joint" type="revolute">
+    <parent link="wrist_2_link" />
+    <child link="wrist_3_link" />
+    <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.09465" />
+    <axis xyz="0 1 0" />
+    <limit effort="28.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="0.5" />
+    <dynamics damping="0.0" friction="0.0" />
+  </joint>
+  <joint name="ee_fixed_joint" type="fixed">
+    <parent link="wrist_3_link" />
+    <child link="ee_link" />
+    <origin rpy="0.0 0.0 1.570796325" xyz="0.0 0.0823 0.0" />
+  </joint>
+  <joint name="wrist_3_link-tool0_fixed_joint" type="fixed">
+    <origin rpy="-1.570796325 0 0" xyz="0 0.0823 0" />
+    <parent link="wrist_3_link" />
+    <child link="tool0" />
+  </joint>
+</robot>

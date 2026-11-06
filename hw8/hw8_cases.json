@@ -1,0 +1,3705 @@
+{
+  "collision_detection_2d": [
+    {
+      "name": "crossing",
+      "inputs": {
+        "start": [
+          -1,
+          0
+        ],
+        "end": [
+          1,
+          0
+        ],
+        "center": [
+          0,
+          0
+        ],
+        "radius": 0.3
+      },
+      "expected": true
+    },
+    {
+      "name": "tangent",
+      "inputs": {
+        "start": [
+          -1.0,
+          0.5
+        ],
+        "end": [
+          1.0,
+          0.5
+        ],
+        "center": [
+          0,
+          0
+        ],
+        "radius": 0.5
+      },
+      "expected": true
+    },
+    {
+      "name": "near miss",
+      "inputs": {
+        "start": [
+          -1.0,
+          0.5001
+        ],
+        "end": [
+          1.0,
+          0.5001
+        ],
+        "center": [
+          0,
+          0
+        ],
+        "radius": 0.5
+      },
+      "expected": false
+    },
+    {
+      "name": "beyond end",
+      "inputs": {
+        "start": [
+          0,
+          0
+        ],
+        "end": [
+          1,
+          0
+        ],
+        "center": [
+          2,
+          0
+        ],
+        "radius": 0.2
+      },
+      "expected": false
+    },
+    {
+      "name": "before start",
+      "inputs": {
+        "start": [
+          0,
+          0
+        ],
+        "end": [
+          1,
+          0
+        ],
+        "center": [
+          -1,
+          0
+        ],
+        "radius": 0.2
+      },
+      "expected": false
+    },
+    {
+      "name": "endpoint inside",
+      "inputs": {
+        "start": [
+          0,
+          0
+        ],
+        "end": [
+          2,
+          0
+        ],
+        "center": [
+          0,
+          0
+        ],
+        "radius": 0.2
+      },
+      "expected": true
+    },
+    {
+      "name": "endpoint touching",
+      "inputs": {
+        "start": [
+          0,
+          0
+        ],
+        "end": [
+          1,
+          0
+        ],
+        "center": [
+          1.5,
+          0.0
+        ],
+        "radius": 0.5
+      },
+      "expected": true
+    },
+    {
+      "name": "point inside",
+      "inputs": {
+        "start": [
+          0,
+          0
+        ],
+        "end": [
+          0,
+          0
+        ],
+        "center": [
+          0,
+          0
+        ],
+        "radius": 0.2
+      },
+      "expected": true
+    },
+    {
+      "name": "point outside",
+      "inputs": {
+        "start": [
+          0,
+          0
+        ],
+        "end": [
+          0,
+          0
+        ],
+        "center": [
+          1,
+          1
+        ],
+        "radius": 0.2
+      },
+      "expected": false
+    },
+    {
+      "name": "point tangent",
+      "inputs": {
+        "start": [
+          0,
+          0
+        ],
+        "end": [
+          0,
+          0
+        ],
+        "center": [
+          0.5,
+          0.0
+        ],
+        "radius": 0.5
+      },
+      "expected": true
+    },
+    {
+      "name": "zero radius hit",
+      "inputs": {
+        "start": [
+          -1,
+          0
+        ],
+        "end": [
+          1,
+          0
+        ],
+        "center": [
+          0,
+          0
+        ],
+        "radius": 0
+      },
+      "expected": true
+    },
+    {
+      "name": "zero radius miss",
+      "inputs": {
+        "start": [
+          -1,
+          0
+        ],
+        "end": [
+          1,
+          0
+        ],
+        "center": [
+          0.0,
+          0.01
+        ],
+        "radius": 0
+      },
+      "expected": false
+    },
+    {
+      "name": "diagonal",
+      "inputs": {
+        "start": [
+          -2,
+          -2
+        ],
+        "end": [
+          2,
+          2
+        ],
+        "center": [
+          0,
+          0
+        ],
+        "radius": 0.1
+      },
+      "expected": true
+    },
+    {
+      "name": "reversed",
+      "inputs": {
+        "start": [
+          1,
+          0
+        ],
+        "end": [
+          -1,
+          0
+        ],
+        "center": [
+          0,
+          0
+        ],
+        "radius": 0.3
+      },
+      "expected": true
+    },
+    {
+      "name": "translated",
+      "inputs": {
+        "start": [
+          100,
+          100
+        ],
+        "end": [
+          102,
+          100
+        ],
+        "center": [
+          101.0,
+          100.2
+        ],
+        "radius": 0.3
+      },
+      "expected": true
+    },
+    {
+      "name": "tiny segment",
+      "inputs": {
+        "start": [
+          0.0,
+          0.0
+        ],
+        "end": [
+          1e-12,
+          0.0
+        ],
+        "center": [
+          1e-12,
+          0.0
+        ],
+        "radius": 1e-14
+      },
+      "expected": true
+    },
+    {
+      "name": "general segment 1",
+      "inputs": {
+        "start": [
+          1.101262453505847,
+          0.3384312766461778
+        ],
+        "end": [
+          -0.5399715152535035,
+          -1.2602418568524327
+        ],
+        "center": [
+          -1.8946212698392553,
+          0.018638290983285614
+        ],
+        "radius": 0.4
+      },
+      "expected": false
+    },
+    {
+      "name": "general segment 2",
+      "inputs": {
+        "start": [
+          -0.8105670995116028,
+          -0.8721559599345132
+        ],
+        "end": [
+          -0.22196950708389104,
+          -0.05184602813201771
+        ],
+        "center": [
+          -2.2767828157758307,
+          0.9251465905764266
+        ],
+        "radius": 0.4
+      },
+      "expected": false
+    },
+    {
+      "name": "general segment 3",
+      "inputs": {
+        "start": [
+          -2.026845605910026,
+          1.8596241085543468
+        ],
+        "end": [
+          0.5905681115998624,
+          -0.47184451813331413
+        ],
+        "center": [
+          1.342996537380774,
+          0.020786461917443023
+        ],
+        "radius": 0.4
+      },
+      "expected": false
+    },
+    {
+      "name": "general segment 4",
+      "inputs": {
+        "start": [
+          0.6909209676232841,
+          0.10722707944720507
+        ],
+        "end": [
+          1.096531380130275,
+          1.0614224543758295
+        ],
+        "center": [
+          -0.9073341413930657,
+          -0.6124917784436158
+        ],
+        "radius": 0.4
+      },
+      "expected": false
+    },
+    {
+      "name": "general segment 5",
+      "inputs": {
+        "start": [
+          0.3432270521124315,
+          -0.21001015163517062
+        ],
+        "end": [
+          -2.284914216554451,
+          2.0261175349217764
+        ],
+        "center": [
+          -2.174977373868806,
+          -2.081542853744764
+        ],
+        "radius": 0.4
+      },
+      "expected": false
+    },
+    {
+      "name": "general segment 6",
+      "inputs": {
+        "start": [
+          -1.2761124197329383,
+          0.5648512404463458
+        ],
+        "end": [
+          1.7960125066302708,
+          -0.2354150525900867
+        ],
+        "center": [
+          -0.3910773505445041,
+          0.17390146428778722
+        ],
+        "radius": 0.4
+      },
+      "expected": true
+    },
+    {
+      "name": "general segment 7",
+      "inputs": {
+        "start": [
+          -0.3668597432540227,
+          0.08236522460221347
+        ],
+        "end": [
+          -1.1399714593630075,
+          0.438257432619766
+        ],
+        "center": [
+          0.39257939815601534,
+          -2.4354174163439515
+        ],
+        "radius": 0.4
+      },
+      "expected": false
+    },
+    {
+      "name": "general segment 8",
+      "inputs": {
+        "start": [
+          -0.11022594532382894,
+          0.16291581767584848
+        ],
+        "end": [
+          0.5612247602630475,
+          -0.816089756439701
+        ],
+        "center": [
+          -1.3280342642624956,
+          -0.9507340805091575
+        ],
+        "radius": 0.4
+      },
+      "expected": false
+    }
+  ],
+  "rrt": [
+    {
+      "name": "2D: direct connection zero budget",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0
+        ],
+        "goal": [
+          0.8,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 0,
+        "seed": 0
+      },
+      "expected": true,
+      "callback": "free"
+    },
+    {
+      "name": "2D: same valid endpoint",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0
+        ],
+        "goal": [
+          -0.8,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 0,
+        "seed": 0
+      },
+      "expected": true,
+      "callback": "free"
+    },
+    {
+      "name": "2D: colliding start",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0
+        ],
+        "goal": [
+          0.8,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 1000,
+        "seed": 0
+      },
+      "expected": false,
+      "callback": "blocked"
+    },
+    {
+      "name": "2D: colliding goal",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0
+        ],
+        "goal": [
+          0.8,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 1000,
+        "seed": 0
+      },
+      "expected": false,
+      "callback": "goal_blocked"
+    },
+    {
+      "name": "2D: start outside bounds",
+      "inputs": {
+        "start": [
+          -2.0,
+          -2.0
+        ],
+        "goal": [
+          0.8,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 1000,
+        "seed": 0
+      },
+      "expected": false,
+      "callback": "free"
+    },
+    {
+      "name": "2D: goal outside bounds",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0
+        ],
+        "goal": [
+          2.0,
+          2.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 1000,
+        "seed": 0
+      },
+      "expected": false,
+      "callback": "free"
+    },
+    {
+      "name": "2D: blocked edge zero budget",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0
+        ],
+        "goal": [
+          0.8,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 0,
+        "seed": 0
+      },
+      "expected": false,
+      "callback": "gate"
+    },
+    {
+      "name": "2D: bounded unsuccessful search",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0
+        ],
+        "goal": [
+          0.8,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 2,
+        "seed": 0
+      },
+      "expected": null,
+      "callback": "gate"
+    },
+    {
+      "name": "2D: route around wall seed 0",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0
+        ],
+        "goal": [
+          0.8,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 1000,
+        "seed": 0
+      },
+      "expected": true,
+      "callback": "gate"
+    },
+    {
+      "name": "2D: route around wall seed 11",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0
+        ],
+        "goal": [
+          0.8,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 1000,
+        "seed": 11
+      },
+      "expected": true,
+      "callback": "gate"
+    },
+    {
+      "name": "2D: small extensions",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0
+        ],
+        "goal": [
+          0.8,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.1,
+        "max_iterations": 2500,
+        "seed": 0
+      },
+      "expected": true,
+      "callback": "gate"
+    },
+    {
+      "name": "2D: near goal across wall",
+      "inputs": {
+        "start": [
+          -0.1,
+          0.0
+        ],
+        "goal": [
+          0.1,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.3,
+        "max_iterations": 1000,
+        "seed": 0
+      },
+      "expected": true,
+      "callback": "gate"
+    },
+    {
+      "name": "2D: asymmetric bounds",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0
+        ],
+        "goal": [
+          0.8,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.2,
+            1.1
+          ],
+          [
+            -1.2,
+            1.1
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 1000,
+        "seed": 0
+      },
+      "expected": true,
+      "callback": "gate"
+    },
+    {
+      "name": "2D: repeated start samples",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0
+        ],
+        "goal": [
+          0.8,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 4,
+        "seed": 0
+      },
+      "expected": false,
+      "callback": "gate",
+      "repeat_start": true
+    },
+    {
+      "name": "6D: direct connection zero budget",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 0,
+        "seed": 0
+      },
+      "expected": true,
+      "callback": "free"
+    },
+    {
+      "name": "6D: same valid endpoint",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          -0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 0,
+        "seed": 0
+      },
+      "expected": true,
+      "callback": "free"
+    },
+    {
+      "name": "6D: colliding start",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 1000,
+        "seed": 0
+      },
+      "expected": false,
+      "callback": "blocked"
+    },
+    {
+      "name": "6D: colliding goal",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 1000,
+        "seed": 0
+      },
+      "expected": false,
+      "callback": "goal_blocked"
+    },
+    {
+      "name": "6D: start outside bounds",
+      "inputs": {
+        "start": [
+          -2.0,
+          -2.0,
+          -2.0,
+          -2.0,
+          -2.0,
+          -2.0
+        ],
+        "goal": [
+          0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 1000,
+        "seed": 0
+      },
+      "expected": false,
+      "callback": "free"
+    },
+    {
+      "name": "6D: goal outside bounds",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0,
+          2.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 1000,
+        "seed": 0
+      },
+      "expected": false,
+      "callback": "free"
+    },
+    {
+      "name": "6D: blocked edge zero budget",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 0,
+        "seed": 0
+      },
+      "expected": false,
+      "callback": "gate"
+    },
+    {
+      "name": "6D: bounded unsuccessful search",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 2,
+        "seed": 0
+      },
+      "expected": null,
+      "callback": "gate"
+    },
+    {
+      "name": "6D: route around wall seed 0",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 1000,
+        "seed": 0
+      },
+      "expected": true,
+      "callback": "gate"
+    },
+    {
+      "name": "6D: route around wall seed 11",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 1000,
+        "seed": 11
+      },
+      "expected": true,
+      "callback": "gate"
+    },
+    {
+      "name": "6D: small extensions",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.1,
+        "max_iterations": 2500,
+        "seed": 0
+      },
+      "expected": true,
+      "callback": "gate"
+    },
+    {
+      "name": "6D: near goal across wall",
+      "inputs": {
+        "start": [
+          -0.1,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          0.1,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -0.05,
+            0.05
+          ],
+          [
+            -0.05,
+            0.05
+          ],
+          [
+            -0.05,
+            0.05
+          ],
+          [
+            -0.05,
+            0.05
+          ]
+        ],
+        "step_size": 0.3,
+        "max_iterations": 1000,
+        "seed": 0
+      },
+      "expected": true,
+      "callback": "gate"
+    },
+    {
+      "name": "6D: asymmetric bounds",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.2,
+            1.1
+          ],
+          [
+            -1.2,
+            1.1
+          ],
+          [
+            -1.2,
+            1.1
+          ],
+          [
+            -1.2,
+            1.1
+          ],
+          [
+            -1.2,
+            1.1
+          ],
+          [
+            -1.2,
+            1.1
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 1000,
+        "seed": 0
+      },
+      "expected": true,
+      "callback": "gate"
+    },
+    {
+      "name": "6D: repeated start samples",
+      "inputs": {
+        "start": [
+          -0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "goal": [
+          0.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "bounds": [
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ],
+          [
+            -1.0,
+            1.0
+          ]
+        ],
+        "step_size": 0.25,
+        "max_iterations": 4,
+        "seed": 0
+      },
+      "expected": false,
+      "callback": "gate",
+      "repeat_start": true
+    }
+  ],
+  "robot_in_collision": [
+    {
+      "name": "start without obstacles",
+      "inputs": {
+        "theta": [
+          -1.0,
+          -1.4,
+          1.7,
+          -1.8,
+          -1.4,
+          0.0
+        ],
+        "obstacles": []
+      },
+      "expected": false
+    },
+    {
+      "name": "goal without obstacles",
+      "inputs": {
+        "theta": [
+          1.0,
+          -1.1,
+          1.5,
+          -1.5,
+          -1.1,
+          0.0
+        ],
+        "obstacles": []
+      },
+      "expected": false
+    },
+    {
+      "name": "start in demo",
+      "inputs": {
+        "theta": [
+          -1.0,
+          -1.4,
+          1.7,
+          -1.8,
+          -1.4,
+          0.0
+        ],
+        "obstacles": [
+          [
+            0.340674,
+            0.01615,
+            0.41704,
+            0.09
+          ]
+        ]
+      },
+      "expected": false
+    },
+    {
+      "name": "goal in demo",
+      "inputs": {
+        "theta": [
+          1.0,
+          -1.1,
+          1.5,
+          -1.5,
+          -1.1,
+          0.0
+        ],
+        "obstacles": [
+          [
+            0.340674,
+            0.01615,
+            0.41704,
+            0.09
+          ]
+        ]
+      },
+      "expected": false
+    },
+    {
+      "name": "blocked middle",
+      "inputs": {
+        "theta": [
+          0.0,
+          -1.25,
+          1.6,
+          -1.65,
+          -1.25,
+          0.0
+        ],
+        "obstacles": [
+          [
+            0.340674,
+            0.01615,
+            0.41704,
+            0.09
+          ]
+        ]
+      },
+      "expected": true
+    },
+    {
+      "name": "distant obstacle",
+      "inputs": {
+        "theta": [
+          -1.0,
+          -1.4,
+          1.7,
+          -1.8,
+          -1.4,
+          0.0
+        ],
+        "obstacles": [
+          [
+            10.0,
+            10.0,
+            10.0,
+            0.1
+          ]
+        ]
+      },
+      "expected": false
+    },
+    {
+      "name": "negative out of bounds",
+      "inputs": {
+        "theta": [
+          -4.0,
+          -4.0,
+          -4.0,
+          -4.0,
+          -4.0,
+          -4.0
+        ],
+        "obstacles": []
+      },
+      "expected": true
+    },
+    {
+      "name": "positive out of bounds",
+      "inputs": {
+        "theta": [
+          4.0,
+          4.0,
+          4.0,
+          4.0,
+          4.0,
+          4.0
+        ],
+        "obstacles": []
+      },
+      "expected": true
+    },
+    {
+      "name": "self configuration 1",
+      "inputs": {
+        "theta": [
+          0.3194203404507643,
+          1.3577666826931523,
+          -0.06626414406189601,
+          2.14569520414647,
+          -0.9553538986437203,
+          0.3018757795098476
+        ],
+        "obstacles": []
+      },
+      "expected": true
+    },
+    {
+      "name": "self configuration 2",
+      "inputs": {
+        "theta": [
+          0.027892886702460245,
+          -3.0030127854466633,
+          -1.7091587598862295,
+          -2.6159587376570514,
+          -1.5782117995092095,
+          -3.1002002716934114
+        ],
+        "obstacles": []
+      },
+      "expected": false
+    },
+    {
+      "name": "self configuration 3",
+      "inputs": {
+        "theta": [
+          -1.2993106160782346,
+          -0.792389759234684,
+          0.9225197278664479,
+          2.15966020498023,
+          -0.5309913553473374,
+          0.8272974749608527
+        ],
+        "obstacles": []
+      },
+      "expected": true
+    },
+    {
+      "name": "self configuration 4",
+      "inputs": {
+        "theta": [
+          0.12418933828386788,
+          -1.6918915739761824,
+          -1.891709686905423,
+          -0.2997880970889635,
+          1.849540074588898,
+          0.586079072800985
+        ],
+        "obstacles": []
+      },
+      "expected": false
+    },
+    {
+      "name": "self configuration 5",
+      "inputs": {
+        "theta": [
+          1.252377423349893,
+          1.446541627441464,
+          0.7619322964658599,
+          -1.6066801540659617,
+          -0.36628751440656904,
+          0.08580221845251625
+        ],
+        "obstacles": []
+      },
+      "expected": true
+    },
+    {
+      "name": "self configuration 6",
+      "inputs": {
+        "theta": [
+          -3.071771984063559,
+          -1.2848827497320858,
+          -0.8842434132221549,
+          -3.0766222114084845,
+          0.39060931263096466,
+          0.3072640056038308
+        ],
+        "obstacles": []
+      },
+      "expected": false
+    },
+    {
+      "name": "self configuration 7",
+      "inputs": {
+        "theta": [
+          -2.579350692174402,
+          -1.5756249855053117,
+          2.540202656701859,
+          -0.387901331380146,
+          -1.5051117333831894,
+          2.2788168214269984
+        ],
+        "obstacles": []
+      },
+      "expected": false
+    },
+    {
+      "name": "self configuration 8",
+      "inputs": {
+        "theta": [
+          -0.2785237734613353,
+          0.7875880596460979,
+          2.5374702766454136,
+          0.2826022816484265,
+          -2.1519154206633573,
+          1.344148089234643
+        ],
+        "obstacles": []
+      },
+      "expected": true
+    },
+    {
+      "name": "self configuration 9",
+      "inputs": {
+        "theta": [
+          2.7363752561494707,
+          -0.513173617440411,
+          1.016260412466111,
+          2.3516034648746915,
+          -2.1606094084167613,
+          1.7747509663572891
+        ],
+        "obstacles": []
+      },
+      "expected": false
+    },
+    {
+      "name": "self configuration 10",
+      "inputs": {
+        "theta": [
+          -0.16434703810455834,
+          0.3304230882599012,
+          2.6656496504477794,
+          1.967604546903359,
+          -2.300066059814174,
+          -0.5355417979266196
+        ],
+        "obstacles": []
+      },
+      "expected": true
+    },
+    {
+      "name": "self configuration 11",
+      "inputs": {
+        "theta": [
+          1.104452008336773,
+          1.9586009558357484,
+          -2.131754623365471,
+          1.2645241048256008,
+          0.11887291633097928,
+          -2.6530244051526344
+        ],
+        "obstacles": []
+      },
+      "expected": true
+    },
+    {
+      "name": "self configuration 12",
+      "inputs": {
+        "theta": [
+          0.12225265328092541,
+          -0.3216858942790561,
+          -0.352781667483318,
+          -1.460532651704342,
+          -0.8469030467210966,
+          1.6454172219186944
+        ],
+        "obstacles": []
+      },
+      "expected": false
+    },
+    {
+      "name": "coarse hit fine miss",
+      "inputs": {
+        "theta": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "obstacles": [
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.1
+          ]
+        ]
+      },
+      "expected": false,
+      "geometry": {
+        "FINE_RADII": [
+          0.1,
+          0.1,
+          0.1
+        ],
+        "COARSE_RADII": [
+          0.6,
+          0.1
+        ],
+        "LINK_SPHERES": [
+          [
+            0,
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "SELF_COLLISION_PAIRS": [
+          [
+            0,
+            1
+          ]
+        ],
+        "JOINT_BOUNDS": [
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ]
+        ],
+        "centers": {
+          "fine": [
+            [
+              -0.5,
+              0,
+              0
+            ],
+            [
+              0.5,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "coarse": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "fine overlap",
+      "inputs": {
+        "theta": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "obstacles": [
+          [
+            0.5,
+            0,
+            0,
+            0.05
+          ]
+        ]
+      },
+      "expected": true,
+      "geometry": {
+        "FINE_RADII": [
+          0.1,
+          0.1,
+          0.1
+        ],
+        "COARSE_RADII": [
+          0.6,
+          0.1
+        ],
+        "LINK_SPHERES": [
+          [
+            0,
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "SELF_COLLISION_PAIRS": [
+          [
+            0,
+            1
+          ]
+        ],
+        "JOINT_BOUNDS": [
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ]
+        ],
+        "centers": {
+          "fine": [
+            [
+              -0.5,
+              0,
+              0
+            ],
+            [
+              0.5,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "coarse": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "fine tangency",
+      "inputs": {
+        "theta": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "obstacles": [
+          [
+            0.5,
+            0.2,
+            0,
+            0.1
+          ]
+        ]
+      },
+      "expected": true,
+      "geometry": {
+        "FINE_RADII": [
+          0.1,
+          0.1,
+          0.1
+        ],
+        "COARSE_RADII": [
+          0.6,
+          0.1
+        ],
+        "LINK_SPHERES": [
+          [
+            0,
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "SELF_COLLISION_PAIRS": [
+          [
+            0,
+            1
+          ]
+        ],
+        "JOINT_BOUNDS": [
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ]
+        ],
+        "centers": {
+          "fine": [
+            [
+              -0.5,
+              0,
+              0
+            ],
+            [
+              0.5,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "coarse": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "fine near miss",
+      "inputs": {
+        "theta": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "obstacles": [
+          [
+            0.5,
+            0.20001,
+            0,
+            0.1
+          ]
+        ]
+      },
+      "expected": false,
+      "geometry": {
+        "FINE_RADII": [
+          0.1,
+          0.1,
+          0.1
+        ],
+        "COARSE_RADII": [
+          0.6,
+          0.1
+        ],
+        "LINK_SPHERES": [
+          [
+            0,
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "SELF_COLLISION_PAIRS": [
+          [
+            0,
+            1
+          ]
+        ],
+        "JOINT_BOUNDS": [
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ]
+        ],
+        "centers": {
+          "fine": [
+            [
+              -0.5,
+              0,
+              0
+            ],
+            [
+              0.5,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "coarse": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "second obstacle hits",
+      "inputs": {
+        "theta": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "obstacles": [
+          [
+            10,
+            10,
+            10,
+            0.1
+          ],
+          [
+            0.5,
+            0,
+            0,
+            0.01
+          ]
+        ]
+      },
+      "expected": true,
+      "geometry": {
+        "FINE_RADII": [
+          0.1,
+          0.1,
+          0.1
+        ],
+        "COARSE_RADII": [
+          0.6,
+          0.1
+        ],
+        "LINK_SPHERES": [
+          [
+            0,
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "SELF_COLLISION_PAIRS": [
+          [
+            0,
+            1
+          ]
+        ],
+        "JOINT_BOUNDS": [
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ]
+        ],
+        "centers": {
+          "fine": [
+            [
+              -0.5,
+              0,
+              0
+            ],
+            [
+              0.5,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "coarse": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "empty scene synthetic",
+      "inputs": {
+        "theta": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "obstacles": []
+      },
+      "expected": false,
+      "geometry": {
+        "FINE_RADII": [
+          0.1,
+          0.1,
+          0.1
+        ],
+        "COARSE_RADII": [
+          0.6,
+          0.1
+        ],
+        "LINK_SPHERES": [
+          [
+            0,
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "SELF_COLLISION_PAIRS": [
+          [
+            0,
+            1
+          ]
+        ],
+        "JOINT_BOUNDS": [
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ]
+        ],
+        "centers": {
+          "fine": [
+            [
+              -0.5,
+              0,
+              0
+            ],
+            [
+              0.5,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ],
+          "coarse": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              2,
+              0,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "self tangency",
+      "inputs": {
+        "theta": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "obstacles": []
+      },
+      "expected": true,
+      "geometry": {
+        "FINE_RADII": [
+          0.1,
+          0.1,
+          0.1
+        ],
+        "COARSE_RADII": [
+          0.6,
+          0.1
+        ],
+        "LINK_SPHERES": [
+          [
+            0,
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "SELF_COLLISION_PAIRS": [
+          [
+            0,
+            1
+          ]
+        ],
+        "JOINT_BOUNDS": [
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ]
+        ],
+        "centers": {
+          "fine": [
+            [
+              -0.5,
+              0,
+              0
+            ],
+            [
+              0.5,
+              0,
+              0
+            ],
+            [
+              0.5,
+              0.2,
+              0
+            ]
+          ],
+          "coarse": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0.5,
+              0.2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "allowed self overlap",
+      "inputs": {
+        "theta": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "obstacles": []
+      },
+      "expected": false,
+      "geometry": {
+        "FINE_RADII": [
+          0.1,
+          0.1,
+          0.1
+        ],
+        "COARSE_RADII": [
+          0.6,
+          0.1
+        ],
+        "LINK_SPHERES": [
+          [
+            0,
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "SELF_COLLISION_PAIRS": [],
+        "JOINT_BOUNDS": [
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ],
+          [
+            -3.141592653589793,
+            3.141592653589793
+          ]
+        ],
+        "centers": {
+          "fine": [
+            [
+              -0.5,
+              0,
+              0
+            ],
+            [
+              0.5,
+              0,
+              0
+            ],
+            [
+              0.5,
+              0.2,
+              0
+            ]
+          ],
+          "coarse": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0.5,
+              0.2,
+              0
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "interpolate_joint_path": [
+    {
+      "name": "identity",
+      "inputs": {
+        "theta_start": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "theta_end": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_joint_step": 0.1
+      },
+      "expected": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "name": "single joint",
+      "inputs": {
+        "theta_start": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "theta_end": [
+          0.2,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_joint_step": 0.1
+      },
+      "expected": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.1,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.2,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "name": "negative direction",
+      "inputs": {
+        "theta_start": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "theta_end": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_joint_step": 0.3
+      },
+      "expected": [
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.75,
+          0.75,
+          0.75,
+          0.75,
+          0.75,
+          0.75
+        ],
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "name": "unequal changes",
+      "inputs": {
+        "theta_start": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "theta_end": [
+          0.1,
+          -0.4,
+          0.8,
+          0.0,
+          -0.2,
+          0.3
+        ],
+        "max_joint_step": 0.25
+      },
+      "expected": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.025,
+          -0.1,
+          0.2,
+          0.0,
+          -0.05,
+          0.075
+        ],
+        [
+          0.05,
+          -0.2,
+          0.4,
+          0.0,
+          -0.1,
+          0.15
+        ],
+        [
+          0.07500000000000001,
+          -0.30000000000000004,
+          0.6000000000000001,
+          0.0,
+          -0.15000000000000002,
+          0.22499999999999998
+        ],
+        [
+          0.1,
+          -0.4,
+          0.8,
+          0.0,
+          -0.2,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "one interval",
+      "inputs": {
+        "theta_start": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "theta_end": [
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01
+        ],
+        "max_joint_step": 1.0
+      },
+      "expected": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01
+        ]
+      ]
+    },
+    {
+      "name": "tiny increment",
+      "inputs": {
+        "theta_start": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "theta_end": [
+          1e-12,
+          1e-12,
+          1e-12,
+          1e-12,
+          1e-12,
+          1e-12
+        ],
+        "max_joint_step": 1e-13
+      },
+      "expected": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1e-13,
+          1e-13,
+          1e-13,
+          1e-13,
+          1e-13,
+          1e-13
+        ],
+        [
+          2e-13,
+          2e-13,
+          2e-13,
+          2e-13,
+          2e-13,
+          2e-13
+        ],
+        [
+          3.0000000000000003e-13,
+          3.0000000000000003e-13,
+          3.0000000000000003e-13,
+          3.0000000000000003e-13,
+          3.0000000000000003e-13,
+          3.0000000000000003e-13
+        ],
+        [
+          4e-13,
+          4e-13,
+          4e-13,
+          4e-13,
+          4e-13,
+          4e-13
+        ],
+        [
+          5e-13,
+          5e-13,
+          5e-13,
+          5e-13,
+          5e-13,
+          5e-13
+        ],
+        [
+          6.000000000000001e-13,
+          6.000000000000001e-13,
+          6.000000000000001e-13,
+          6.000000000000001e-13,
+          6.000000000000001e-13,
+          6.000000000000001e-13
+        ],
+        [
+          7e-13,
+          7e-13,
+          7e-13,
+          7e-13,
+          7e-13,
+          7e-13
+        ],
+        [
+          8e-13,
+          8e-13,
+          8e-13,
+          8e-13,
+          8e-13,
+          8e-13
+        ],
+        [
+          9e-13,
+          9e-13,
+          9e-13,
+          9e-13,
+          9e-13,
+          9e-13
+        ],
+        [
+          1e-12,
+          1e-12,
+          1e-12,
+          1e-12,
+          1e-12,
+          1e-12
+        ]
+      ]
+    },
+    {
+      "name": "no wrapping",
+      "inputs": {
+        "theta_start": [
+          -3.0,
+          -3.0,
+          -3.0,
+          -3.0,
+          -3.0,
+          -3.0
+        ],
+        "theta_end": [
+          3.0,
+          3.0,
+          3.0,
+          3.0,
+          3.0,
+          3.0
+        ],
+        "max_joint_step": 0.4
+      },
+      "expected": [
+        [
+          -3.0,
+          -3.0,
+          -3.0,
+          -3.0,
+          -3.0,
+          -3.0
+        ],
+        [
+          -2.6,
+          -2.6,
+          -2.6,
+          -2.6,
+          -2.6,
+          -2.6
+        ],
+        [
+          -2.2,
+          -2.2,
+          -2.2,
+          -2.2,
+          -2.2,
+          -2.2
+        ],
+        [
+          -1.7999999999999998,
+          -1.7999999999999998,
+          -1.7999999999999998,
+          -1.7999999999999998,
+          -1.7999999999999998,
+          -1.7999999999999998
+        ],
+        [
+          -1.4,
+          -1.4,
+          -1.4,
+          -1.4,
+          -1.4,
+          -1.4
+        ],
+        [
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0
+        ],
+        [
+          -0.5999999999999996,
+          -0.5999999999999996,
+          -0.5999999999999996,
+          -0.5999999999999996,
+          -0.5999999999999996,
+          -0.5999999999999996
+        ],
+        [
+          -0.19999999999999973,
+          -0.19999999999999973,
+          -0.19999999999999973,
+          -0.19999999999999973,
+          -0.19999999999999973,
+          -0.19999999999999973
+        ],
+        [
+          0.20000000000000018,
+          0.20000000000000018,
+          0.20000000000000018,
+          0.20000000000000018,
+          0.20000000000000018,
+          0.20000000000000018
+        ],
+        [
+          0.6000000000000001,
+          0.6000000000000001,
+          0.6000000000000001,
+          0.6000000000000001,
+          0.6000000000000001,
+          0.6000000000000001
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.4000000000000004,
+          1.4000000000000004,
+          1.4000000000000004,
+          1.4000000000000004,
+          1.4000000000000004,
+          1.4000000000000004
+        ],
+        [
+          1.8000000000000007,
+          1.8000000000000007,
+          1.8000000000000007,
+          1.8000000000000007,
+          1.8000000000000007,
+          1.8000000000000007
+        ],
+        [
+          2.2,
+          2.2,
+          2.2,
+          2.2,
+          2.2,
+          2.2
+        ],
+        [
+          2.6000000000000005,
+          2.6000000000000005,
+          2.6000000000000005,
+          2.6000000000000005,
+          2.6000000000000005,
+          2.6000000000000005
+        ],
+        [
+          3.0,
+          3.0,
+          3.0,
+          3.0,
+          3.0,
+          3.0
+        ]
+      ]
+    },
+    {
+      "name": "nonzero identical",
+      "inputs": {
+        "theta_start": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "theta_end": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "max_joint_step": 0.5
+      },
+      "expected": [
+        [
+          0.0,
+          1.0,
+          2.0,
+          3.0,
+          4.0,
+          5.0
+        ]
+      ]
+    }
+  ],
+  "smooth_path": [
+    {
+      "name": "valid optimizer output",
+      "inputs": {
+        "path": [
+          [
+            -1.0,
+            -1.4,
+            1.7,
+            -1.8,
+            -1.4,
+            0.0
+          ],
+          [
+            0.0,
+            -1.65,
+            1.8,
+            -1.5499999999999998,
+            -1.25,
+            0.0
+          ],
+          [
+            1.0,
+            -1.1,
+            1.5,
+            -1.5,
+            -1.1,
+            0.0
+          ]
+        ]
+      },
+      "expected": [
+        [
+          -1.0,
+          -1.4,
+          1.7,
+          -1.8,
+          -1.4,
+          0.0
+        ],
+        [
+          -0.6990533687782629,
+          -1.4752366578054341,
+          1.7300946631221736,
+          -1.7247633421945656,
+          -1.3548580053167394,
+          0.0
+        ],
+        [
+          -0.3981067375565256,
+          -1.5504733156108685,
+          1.7601893262443475,
+          -1.6495266843891314,
+          -1.3097160106334789,
+          0.0
+        ],
+        [
+          -0.0971601063347884,
+          -1.6257099734163027,
+          1.7902839893665212,
+          -1.574290026583697,
+          -1.2645740159502183,
+          0.0
+        ],
+        [
+          0.18415114755128487,
+          -1.5487168688467932,
+          1.7447546557346145,
+          -1.5407924426224355,
+          -1.2223773278673074,
+          0.0
+        ],
+        [
+          0.45610076503419006,
+          -1.3991445792311954,
+          1.663169770489743,
+          -1.5271949617482905,
+          -1.1815848852448716,
+          0.0
+        ],
+        [
+          0.7280503825170951,
+          -1.2495722896155979,
+          1.5815848852448715,
+          -1.5135974808741453,
+          -1.1407924426224358,
+          0.0
+        ],
+        [
+          1.0,
+          -1.1,
+          1.5,
+          -1.5,
+          -1.1,
+          0.0
+        ]
+      ],
+      "candidate": [
+        [
+          -1.0,
+          -1.4,
+          1.7,
+          -1.8,
+          -1.4,
+          0.0
+        ],
+        [
+          -0.6990533687782629,
+          -1.4752366578054341,
+          1.7300946631221736,
+          -1.7247633421945656,
+          -1.3548580053167394,
+          0.0
+        ],
+        [
+          -0.3981067375565256,
+          -1.5504733156108685,
+          1.7601893262443475,
+          -1.6495266843891314,
+          -1.3097160106334789,
+          0.0
+        ],
+        [
+          -0.0971601063347884,
+          -1.6257099734163027,
+          1.7902839893665212,
+          -1.574290026583697,
+          -1.2645740159502183,
+          0.0
+        ],
+        [
+          0.18415114755128487,
+          -1.5487168688467932,
+          1.7447546557346145,
+          -1.5407924426224355,
+          -1.2223773278673074,
+          0.0
+        ],
+        [
+          0.45610076503419006,
+          -1.3991445792311954,
+          1.663169770489743,
+          -1.5271949617482905,
+          -1.1815848852448716,
+          0.0
+        ],
+        [
+          0.7280503825170951,
+          -1.2495722896155979,
+          1.5815848852448715,
+          -1.5135974808741453,
+          -1.1407924426224358,
+          0.0
+        ],
+        [
+          1.0,
+          -1.1,
+          1.5,
+          -1.5,
+          -1.1,
+          0.0
+        ]
+      ]
+    },
+    {
+      "name": "optimizer failure",
+      "inputs": {
+        "path": [
+          [
+            -1.0,
+            -1.4,
+            1.7,
+            -1.8,
+            -1.4,
+            0.0
+          ],
+          [
+            0.0,
+            -1.65,
+            1.8,
+            -1.5499999999999998,
+            -1.25,
+            0.0
+          ],
+          [
+            1.0,
+            -1.1,
+            1.5,
+            -1.5,
+            -1.1,
+            0.0
+          ]
+        ]
+      },
+      "expected": null,
+      "candidate": null
+    },
+    {
+      "name": "different optimizer output",
+      "inputs": {
+        "path": [
+          [
+            -1.0,
+            -1.4,
+            1.7,
+            -1.8,
+            -1.4,
+            0.0
+          ],
+          [
+            0.0,
+            -1.65,
+            1.8,
+            -1.5499999999999998,
+            -1.25,
+            0.0
+          ],
+          [
+            1.0,
+            -1.1,
+            1.5,
+            -1.5,
+            -1.1,
+            0.0
+          ]
+        ]
+      },
+      "expected": [
+        [
+          -1.0,
+          -1.4,
+          1.7,
+          -1.8,
+          -1.4,
+          0.0
+        ],
+        [
+          -0.8084885074043491,
+          -1.4478778731489126,
+          1.719151149259565,
+          -1.7521221268510874,
+          -1.3712732761106523,
+          0.0
+        ],
+        [
+          -0.6169770148086982,
+          -1.4957557462978255,
+          1.73830229851913,
+          -1.7042442537021745,
+          -1.3425465522213047,
+          0.0
+        ],
+        [
+          -0.42546552221304723,
+          -1.5436336194467382,
+          1.7574534477786954,
+          -1.6563663805532618,
+          -1.313819828331957,
+          0.0
+        ],
+        [
+          -0.23395402961739628,
+          -1.5915114925956508,
+          1.7766045970382605,
+          -1.608488507404349,
+          -1.2850931044426095,
+          0.0
+        ],
+        [
+          -0.04244253702174543,
+          -1.6393893657445635,
+          1.7957557462978255,
+          -1.5606106342554362,
+          -1.2563663805532619,
+          0.0
+        ],
+        [
+          0.1347057625543929,
+          -1.5759118305950839,
+          1.759588271233682,
+          -1.5432647118722802,
+          -1.2297941356168411,
+          0.0
+        ],
+        [
+          0.30776461004351435,
+          -1.4807294644760671,
+          1.7076706169869458,
+          -1.534611769497824,
+          -1.203835308493473,
+          0.0
+        ],
+        [
+          0.4808234575326358,
+          -1.3855470983570504,
+          1.6557529627402092,
+          -1.5259588271233682,
+          -1.1778764813701046,
+          0.0
+        ],
+        [
+          0.6538823050217571,
+          -1.2903647322380336,
+          1.6038353084934729,
+          -1.517305884748912,
+          -1.1519176542467364,
+          0.0
+        ],
+        [
+          0.8269411525108784,
+          -1.1951823661190168,
+          1.5519176542467366,
+          -1.5086529423744561,
+          -1.1259588271233683,
+          0.0
+        ],
+        [
+          1.0,
+          -1.1,
+          1.5,
+          -1.5,
+          -1.1,
+          0.0
+        ]
+      ],
+      "candidate": [
+        [
+          -1.0,
+          -1.4,
+          1.7,
+          -1.8,
+          -1.4,
+          0.0
+        ],
+        [
+          -0.8084885074043491,
+          -1.4478778731489126,
+          1.719151149259565,
+          -1.7521221268510874,
+          -1.3712732761106523,
+          0.0
+        ],
+        [
+          -0.6169770148086982,
+          -1.4957557462978255,
+          1.73830229851913,
+          -1.7042442537021745,
+          -1.3425465522213047,
+          0.0
+        ],
+        [
+          -0.42546552221304723,
+          -1.5436336194467382,
+          1.7574534477786954,
+          -1.6563663805532618,
+          -1.313819828331957,
+          0.0
+        ],
+        [
+          -0.23395402961739628,
+          -1.5915114925956508,
+          1.7766045970382605,
+          -1.608488507404349,
+          -1.2850931044426095,
+          0.0
+        ],
+        [
+          -0.04244253702174543,
+          -1.6393893657445635,
+          1.7957557462978255,
+          -1.5606106342554362,
+          -1.2563663805532619,
+          0.0
+        ],
+        [
+          0.1347057625543929,
+          -1.5759118305950839,
+          1.759588271233682,
+          -1.5432647118722802,
+          -1.2297941356168411,
+          0.0
+        ],
+        [
+          0.30776461004351435,
+          -1.4807294644760671,
+          1.7076706169869458,
+          -1.534611769497824,
+          -1.203835308493473,
+          0.0
+        ],
+        [
+          0.4808234575326358,
+          -1.3855470983570504,
+          1.6557529627402092,
+          -1.5259588271233682,
+          -1.1778764813701046,
+          0.0
+        ],
+        [
+          0.6538823050217571,
+          -1.2903647322380336,
+          1.6038353084934729,
+          -1.517305884748912,
+          -1.1519176542467364,
+          0.0
+        ],
+        [
+          0.8269411525108784,
+          -1.1951823661190168,
+          1.5519176542467366,
+          -1.5086529423744561,
+          -1.1259588271233683,
+          0.0
+        ],
+        [
+          1.0,
+          -1.1,
+          1.5,
+          -1.5,
+          -1.1,
+          0.0
+        ]
+      ]
+    }
+  ]
+}

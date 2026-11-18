@@ -1,0 +1,576 @@
+{
+  "(a) Finite difference": [
+    {
+      "name": "Increasing position",
+      "kind": "finite_difference",
+      "args": [
+        3,
+        1,
+        0.5
+      ],
+      "expected": [
+        4.0
+      ]
+    },
+    {
+      "name": "Decreasing position",
+      "kind": "finite_difference",
+      "args": [
+        -3,
+        1,
+        2
+      ],
+      "expected": [
+        -2.0
+      ]
+    },
+    {
+      "name": "Constant position",
+      "kind": "finite_difference",
+      "args": [
+        2,
+        2,
+        0.01
+      ],
+      "expected": [
+        0.0
+      ]
+    },
+    {
+      "name": "Small change at 100 Hz",
+      "kind": "finite_difference",
+      "args": [
+        0.002,
+        0,
+        0.01
+      ],
+      "expected": [
+        0.2
+      ]
+    }
+  ],
+  "(a) PID update": [
+    {
+      "name": "First measurement and integral update order",
+      "kind": "pid",
+      "kwargs": {
+        "kp": 2.0,
+        "ki": 3.0,
+        "kd": 4.0,
+        "dt": 0.1
+      },
+      "samples": [
+        [
+          1,
+          2
+        ],
+        [
+          1.1,
+          2
+        ],
+        [
+          1.1,
+          2
+        ]
+      ],
+      "expected": [
+        2.0,
+        -1.900000000000004,
+        2.37
+      ]
+    },
+    {
+      "name": "Setpoint jump with unchanged measurement",
+      "kind": "pid",
+      "kwargs": {
+        "kp": 2.0,
+        "ki": 0,
+        "kd": 4.0,
+        "dt": 0.1
+      },
+      "samples": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          -2
+        ]
+      ],
+      "expected": [
+        0.0,
+        4.0,
+        -6.0
+      ]
+    },
+    {
+      "name": "Exact velocity includes zero and saves the measurement",
+      "kind": "pid",
+      "kwargs": {
+        "kp": 2.0,
+        "ki": 3.0,
+        "kd": 4.0,
+        "dt": 0.1
+      },
+      "samples": [
+        [
+          1,
+          2,
+          0.5
+        ],
+        [
+          2,
+          2,
+          0.0
+        ],
+        [
+          2.1,
+          2
+        ]
+      ],
+      "expected": [
+        0.0,
+        0.30000000000000004,
+        -3.900000000000004
+      ]
+    },
+    {
+      "name": "Clip both ways and integrate with anti-windup off",
+      "kind": "pid",
+      "kwargs": {
+        "kp": 2.0,
+        "ki": 3.0,
+        "kd": 4.0,
+        "dt": 0.1,
+        "u_max": 1,
+        "T_t": 0.5
+      },
+      "samples": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          -3
+        ],
+        [
+          0,
+          0.5
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        1.0,
+        -1.0,
+        1.0,
+        0.15000000000000002
+      ]
+    },
+    {
+      "name": "Negative measurement velocity",
+      "kind": "pid",
+      "kwargs": {
+        "kp": 0,
+        "ki": 0,
+        "kd": 4.0,
+        "dt": 0.1
+      },
+      "samples": [
+        [
+          2,
+          2
+        ],
+        [
+          1.8,
+          2
+        ],
+        [
+          1.7,
+          2
+        ]
+      ],
+      "expected": [
+        0.0,
+        7.999999999999998,
+        4.0000000000000036
+      ]
+    }
+  ],
+  "(b) Low-pass filter": [
+    {
+      "name": "First sample has no startup transient",
+      "kind": "filter",
+      "kwargs": {
+        "cutoff_hz": 5,
+        "dt": 0.01
+      },
+      "samples": [
+        [
+          3
+        ]
+      ],
+      "expected": [
+        3.0
+      ]
+    },
+    {
+      "name": "Filter tracks a step from zero",
+      "kind": "filter",
+      "kwargs": {
+        "cutoff_hz": 5,
+        "dt": 0.01
+      },
+      "samples": [
+        [
+          0
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ]
+      ],
+      "expected": [
+        0.0,
+        0.47811444722137647,
+        0.8419321821218517,
+        1.1187766594166901,
+        1.329439464597472
+      ]
+    },
+    {
+      "name": "Low cutoff and signed inputs",
+      "kind": "filter",
+      "kwargs": {
+        "cutoff_hz": 1,
+        "dt": 0.025
+      },
+      "samples": [
+        [
+          -2
+        ],
+        [
+          2
+        ],
+        [
+          4
+        ],
+        [
+          -2
+        ],
+        [
+          0
+        ]
+      ],
+      "expected": [
+        -2.0,
+        -1.4569790073454671,
+        -0.7161654679795465,
+        -0.8904527434750251,
+        -0.769569110306585
+      ]
+    },
+    {
+      "name": "High cutoff and signed inputs",
+      "kind": "filter",
+      "kwargs": {
+        "cutoff_hz": 20,
+        "dt": 0.025
+      },
+      "samples": [
+        [
+          -2
+        ],
+        [
+          2
+        ],
+        [
+          4
+        ],
+        [
+          -2
+        ],
+        [
+          0
+        ]
+      ],
+      "expected": [
+        -2.0,
+        1.0341879719791045,
+        3.2838957676220937,
+        -0.7241874782054691,
+        -0.17485724424824056
+      ]
+    }
+  ],
+  "(b) Filtered PID update": [
+    {
+      "name": "Filter initializes with the first velocity estimate of zero",
+      "kind": "pid",
+      "kwargs": {
+        "kp": 2.0,
+        "ki": 3.0,
+        "kd": 4.0,
+        "dt": 0.1,
+        "use_filter": true
+      },
+      "samples": [
+        [
+          1,
+          2
+        ],
+        [
+          1.1,
+          2
+        ],
+        [
+          1.1,
+          2
+        ]
+      ],
+      "expected": [
+        2.0,
+        -0.9341879719791075,
+        1.6373861903465627
+      ]
+    },
+    {
+      "name": "Custom cutoff and changing velocity",
+      "kind": "pid",
+      "kwargs": {
+        "kp": 2.0,
+        "ki": 3.0,
+        "kd": 4.0,
+        "dt": 0.1,
+        "use_filter": true,
+        "cutoff_hz": 1
+      },
+      "samples": [
+        [
+          0,
+          1
+        ],
+        [
+          0.2,
+          1
+        ],
+        [
+          -0.1,
+          1
+        ],
+        [
+          -0.1,
+          1
+        ]
+      ],
+      "expected": [
+        2.0,
+        -1.1869563607603004,
+        5.474640627034961,
+        4.749426092282572
+      ]
+    },
+    {
+      "name": "Exact velocity bypasses the filter",
+      "kind": "pid",
+      "kwargs": {
+        "kp": 2.0,
+        "ki": 3.0,
+        "kd": 4.0,
+        "dt": 0.1,
+        "use_filter": true
+      },
+      "samples": [
+        [
+          0,
+          0
+        ],
+        [
+          0.1,
+          0,
+          0
+        ],
+        [
+          0.2,
+          0,
+          -0.2
+        ],
+        [
+          0.3,
+          0
+        ]
+      ],
+      "expected": [
+        0.0,
+        -0.2,
+        0.37,
+        -3.7241879719791036
+      ]
+    }
+  ],
+  "(d) Anti-windup": [
+    {
+      "name": "Explicit tracking time at upper limit",
+      "kind": "pid",
+      "kwargs": {
+        "kp": 2.0,
+        "ki": 3.0,
+        "kd": 4.0,
+        "dt": 0.1,
+        "u_max": 1,
+        "anti_windup": true,
+        "T_t": 0.5
+      },
+      "samples": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          0.25
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        1.0,
+        1.0,
+        0.5,
+        0.07500000000000001
+      ]
+    },
+    {
+      "name": "Explicit tracking time at lower limit",
+      "kind": "pid",
+      "kwargs": {
+        "kp": 2.0,
+        "ki": 3.0,
+        "kd": 4.0,
+        "dt": 0.1,
+        "u_max": 1,
+        "anti_windup": true,
+        "T_t": 0.5
+      },
+      "samples": [
+        [
+          0,
+          -2
+        ],
+        [
+          0,
+          -2
+        ],
+        [
+          0,
+          -0.25
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        -1.0,
+        -1.0,
+        -0.5,
+        -0.07500000000000001
+      ]
+    },
+    {
+      "name": "Default tracking time and recovery from saturation",
+      "kind": "pid",
+      "kwargs": {
+        "kp": 3,
+        "ki": 2,
+        "kd": 0.5,
+        "dt": 0.1,
+        "u_max": 2,
+        "anti_windup": true
+      },
+      "samples": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        2.0,
+        2.0,
+        -1.44,
+        -1.44
+      ]
+    },
+    {
+      "name": "Tracking correction stops after saturation",
+      "kind": "pid",
+      "kwargs": {
+        "kp": 2.0,
+        "ki": 3.0,
+        "kd": 4.0,
+        "dt": 0.1,
+        "u_max": 2,
+        "anti_windup": true,
+        "T_t": 0.5
+      },
+      "samples": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          0.25
+        ],
+        [
+          0,
+          0.25
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "expected": [
+        2.0,
+        0.6,
+        0.675,
+        0.25
+      ]
+    }
+  ]
+}

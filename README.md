@@ -4,7 +4,7 @@ This public repository contains the starter code and public checks for EECS C106
 
 ## Assignments
 
-Nine assignments have been released: HW0 through HW8.
+Ten assignments have been released: HW0 through HW9.
 
 | Assignment | Instructions | File to complete |
 | --- | --- | --- |
@@ -17,6 +17,7 @@ Nine assignments have been released: HW0 through HW8.
 | HW6: Trajectories and Integration in SE(3) | Assignment handout and starter docstrings | `hw6/hw6.py` |
 | HW7: Jacobians and Inverse Kinematics | Assignment handout and starter docstrings | `hw7/jacobian_func_skeleton.py`, `hw7/euler.py`, and `hw7/overactuated_ik.py` |
 | HW8: Path Planning and Dynamics | Assignment handout and starter docstrings | `hw8/rrt.py` |
+| HW9: Implementing PID | Assignment handout and starter docstrings | `hw9/pid.py` |
 
 The assignment handout provides the full problem statement and any additional submission requirements.
 
@@ -84,6 +85,7 @@ python -m pip install -r hw5/requirements.txt  # HW5
 python -m pip install -r hw6/requirements.txt  # HW6
 python -m pip install -r hw7/requirements.txt  # HW7
 python -m pip install -r hw8/requirements.txt  # HW8
+python -m pip install -r hw9/requirements.txt  # HW9
 ```
 
 For HW0, run `python -m jupyterlab` and open `hw0/HW0.ipynb`.
@@ -134,6 +136,10 @@ python hw8/rrt.py --demo trajopt
 For the written OSIRIS-RExploring problem, the ungraded SymPy starter is
 `hw8/OSIRIS-RExploring.py`. Fill in the matrices and the eigenvalue print
 call before running it.
+
+For HW9, complete `hw9/pid.py`, then run `python hw9/check_hw9.py`.
+Run `python hw9/run_pid.py` to compare the PID experiments and save the
+figures in `hw9/img/` for your write-up.
 
 ## Getting a newly released assignment
 
